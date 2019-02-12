@@ -1,0 +1,20 @@
+<%= form_with model: @record, local: true do |form| %>
+<% if @record.errors.any? %>
+  <div id="error_explanation">
+    <%= error_messages_for @record %>
+  </div>
+  <% end %>
+  <table>
+    <tr>  
+        <td><%= form.label :name  %></td>
+        <td><%= form.text_field :name %></td>
+    </tr>
+    <tr>
+        <td><%= form.label :description %></td>
+        <td><%= form.text_area :description %></td>
+    </tr>
+    <tr>
+    <td colspan="2"><%= form.submit value=t(:insert) %></td>
+    </tr>
+    </table>
+<% end %>

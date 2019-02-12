@@ -1,0 +1,16 @@
+<%= link_to t(:add_new_record), new_record_path %>
+<h2><%= t :show_record %></h2>
+      <p>
+        <strong><%= t "activerecord.attributes.record.name" %>:</strong>
+        <%= @record.name %>
+      </p>
+      <% unless @record.description.empty? %> 
+        <p>
+          <strong><%= t "activerecord.attributes.record.description" %>:</strong>
+          <%= @record.description %>
+        </p>
+      <% else %>
+        <p><strong><%= t :description_missing %></strong></p>
+      <% end %>
+<%= render 'record_listing' %>
+

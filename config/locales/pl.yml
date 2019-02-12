@@ -1,0 +1,34 @@
+pl:
+  app_title: "Aplikacja Wprowadź Rekord"
+  new_record: "Nowy Rekord"
+  update_record: "Aktualizuj Record"
+  listing_records: "Wprowadzone rekordy:"
+  add_new_record: "Dodaj Nowy Rekord"
+  show_record: "Wyświetl Rekord"
+  list_records: "Wyświetl Rekordy"
+  delete_confirmation: "Czy jesteś pewien?"
+  description_missing: "Brak opisu"
+  no_records: "Brak rekordów"
+  show: "Wyświetl"
+  edit: "Edytuj"
+  destroy: "Usuń"
+  insert: "Zatwierdź"
+  prohibited_from_save: "uniemożliwyły zapisanie rekordu"
+
+  activerecord:
+    attributes:
+      record:
+        name: "Nazwa Rekordu"
+        description: "Opis Rekordu"
+    errors:
+      template:
+        header:
+          one: "1 bład uniemożliwił zapisanie danych"
+          other: "%{count} błędy uniemożliwły zapisanie danych"
+        body: "Wystąpiły następujące błędy:"
+      models:
+        record:
+          attributes:
+            name:
+              blank: "nie może być pusta"
+              too_short: "musi być dłuższa niż 3 znaki"

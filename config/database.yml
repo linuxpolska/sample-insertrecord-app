@@ -1,0 +1,9 @@
+# Set DATABSE_URL environemt variable
+# Examples:
+# SQLite3
+# export DATABSE_URL=sqlite3:db/db.sqlite3
+# export DATABSE_URL=sqlite3:/var/lib/sqlite/db/db.sqlite3
+# MySQL
+# export DATABASE_URL=mysql2://user:password@127.0.0.1/database?pool=5
+# Postrges
+# DATABASE_URL=postgres://localhost/database?pool=5

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @title %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <section class="main-header">
+        <div>"Linux Polska – Open Source Company"</div>
+    <h1><%=@title%></h1>
+  </section>
+  <div class="main">
+    <%= yield %>
+  </div>
+    <footer>
+      <section class="bottom">
+      <p class="lp-footer"><strong>© 2019</strong> <strong style="color:#fff;">Linux® Polska Sp. z o.o.</strong> <strong>| All rights reserved.<br> Zarejestrowany znak towarowy Linux® jest używany na podstawie umowy sublicencyjnej zawartej z Linux Foundation, wyłącznego licencjobiorcy Linusa Torvaldsa, właściciela znaku na terytorium całego świata</strong>.</p>
+    </footer>
+  </body>
+</html>

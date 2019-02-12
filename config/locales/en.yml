@@ -1,0 +1,67 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  app_title: "Aplication Insert Record"
+  new_record: "New Record"
+  update_record: "Update Record"
+  listing_records: "Records Listing:"
+  add_new_record: "Add New Record"
+  show_record: "Show Record"
+  list_records: "List Records"
+  delete_confirmation: "Are you sure?"
+  description_missing: "No description"
+  no_records: "No records"
+  show: "Show"
+  edit: "Edit"
+  destroy: "Destroy"
+  insert: "Submit"
+  prohibited_from_save: "prohibitted records from being saved"
+
+  activerecord:
+    attributes:
+      record:
+        name: "Record Name"
+        description: "Description"
+    errors:
+      template:
+        header:
+          one: "1 error prohibited this %{model} from being saved"
+          other: "%{count} errors prohibited this %{model} from being saved"
+        body: "There were problems with the following fields:"
+      models:
+        record:
+          attributes:
+            name:
+              blank: "Name can not be empty"
+              too_short: "must be longer than 3 characters"
+
+    
