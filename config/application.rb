@@ -18,7 +18,7 @@ module SampleInsertrecordApp
 
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :pl
-    config.application_title = ENV['']
+    config.application_title = ENV['APP_TITLE']
     #ENV.has_key?('DATABASE_URL')? ENV['DATABASE_URL'] : 'sqlite3:/home/kardasa/Projekty/db.sqlite3?pool=5'
   end
 

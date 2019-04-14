@@ -14,4 +14,101 @@
  *= require_self
  */
 
- 
+ body {
+    -webkit-text-size-adjust: 100%;
+    background: none transparent;
+    color: #ccc;
+    background: #000;
+    font-family: 'robotolight';
+    font-size: 15px;
+    line-height: 26px;
+}
+
+body a {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0px;
+    text-decoration: none;
+    color: #fff;
+    background-color: transparent;
+    border: 2px solid #ffdb00;
+    box-shadow: 1px 1px 3px rgb(51, 51, 51);
+    padding: 4px 8px 2px;
+    box-sizing: border-box;
+    -webkit-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
+body a:hover{
+    text-decoration:none;
+    background-color:#ffdb00;
+    color:#444
+}
+
+.main-header {
+    text-align: center;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 20px; 
+}
+
+.listing {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 5px;
+    display: block; 
+}
+
+h1 {
+    margin: 5px;
+}
+
+#logo {
+    background:url(/assets/Linux-Polska-sp-z-o-o.png) 50% 50% no-repeat;
+    height: 110px;
+    display: block;
+}
+
+input[type=submit]{
+    margin-left: 10px;
+    height: 46px;
+    line-height: 46px;
+    padding: 0 20px;
+    border: none;
+    text-align: center;
+    background:#ffdb00;
+    display: inline-block;
+}
+
+input[type=text]{
+    color: #bbb;
+    width: 100%;
+    border: none;
+    font-size: 14px;
+    border: 5px solid #ffdb00;
+    padding: 5px 5px;
+    display: inline-block;
+    text-align: left;
+}
+
+textarea{
+    color: #bbb;
+    width: 100%;
+    border: none;
+    font-size: 14px;
+    border: 5px solid #ffdb00;
+    padding: 5px 5px;
+    display: inline-block;
+    text-align: left;
+}
+
+#error_explanation {
+    color: #FF0000;
+}
+
+footer {
+    text-align: center;
+    border-top: 2px solid #ccc;
+    margin-top: 20px; 
+}

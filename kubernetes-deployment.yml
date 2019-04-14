@@ -1,0 +1,133 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -f docker-compose.yml -o kubernetes-deployment.yml
+      kompose.version: 1.17.0 (a74acad)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: mariadb
+    name: mariadb
+  spec:
+    ports:
+    - name: "3306"
+      port: 3306
+      targetPort: 3306
+    selector:
+      io.kompose.service: mariadb
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -f docker-compose.yml -o kubernetes-deployment.yml
+      kompose.version: 1.17.0 (a74acad)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: sample-insert-record
+    name: sample-insert-record
+  spec:
+    ports:
+    - name: "9000"
+      port: 9000
+      targetPort: 3000
+    selector:
+      io.kompose.service: sample-insert-record
+  status:
+    loadBalancer: {}
+- apiVersion: extensions/v1beta1
+  kind: Deployment
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -f docker-compose.yml -o kubernetes-deployment.yml
+      kompose.version: 1.17.0 (a74acad)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: mariadb
+    name: mariadb
+  spec:
+    replicas: 1
+    strategy:
+      type: Recreate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          io.kompose.service: mariadb
+      spec:
+        containers:
+        - env:
+          - name: MYSQL_DATABASE
+            value: sample
+          - name: MYSQL_PASSWORD
+            value: sample
+          - name: MYSQL_ROOT_PASSWORD
+            value: verysecurepasswd
+          - name: MYSQL_USER
+            value: sample
+          image: mariadb:10.4
+          name: mariadb
+          ports:
+          - containerPort: 3306
+          resources: {}
+          volumeMounts:
+          - mountPath: /var/lib/mysqld
+            name: db-data
+        restartPolicy: Always
+        volumes:
+        - name: db-data
+          persistentVolumeClaim:
+            claimName: db-data
+  status: {}
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    creationTimestamp: null
+    labels:
+      io.kompose.service: db-data
+    name: db-data
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 100Mi
+  status: {}
+- apiVersion: extensions/v1beta1
+  kind: Deployment
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -f docker-compose.yml -o kubernetes-deployment.yml
+      kompose.version: 1.17.0 (a74acad)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: sample-insert-record
+    name: sample-insert-record
+  spec:
+    replicas: 1
+    strategy: {}
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          io.kompose.service: sample-insert-record
+      spec:
+        containers:
+        - env:
+          - name: APP_TITLE
+            value: Insert Record - Test Compose
+          - name: DATABASE_URL
+            value: mysql2://sample:sample@mariadb/sample?pool=5
+          image: kardasa/sample-insert-record:latest
+          name: sample-insert-record
+          ports:
+          - containerPort: 3000
+          resources: {}
+        restartPolicy: Always
+  status: {}
+kind: List
+metadata: {}
+

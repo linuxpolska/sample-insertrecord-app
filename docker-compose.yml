@@ -1,0 +1,28 @@
+version: '3'
+services:
+  mariadb:
+    image: mariadb:10.4
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: verysecurepasswd
+      MYSQL_DATABASE: sample
+      MYSQL_USER: sample
+      MYSQL_PASSWORD: sample
+    volumes:
+      - db_data:/var/lib/mysqld
+
+  sample-insert-record:
+    image: kardasa/sample-insert-record:latest
+    depends_on:
+      - mariadb
+    ports:
+      - 9000:3000
+    restart: always
+    environment: 
+      DATABASE_URL: mysql2://sample:sample@mariadb/sample?pool=5
+      APP_TITLE: 'Insert Record - Test Compose'
+
+volumes: 
+  db_data: {}
